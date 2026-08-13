@@ -10,7 +10,7 @@
 
 <body>
     <h1>
-        Welcome, to the Habit Manager!
+        Welcome, to the Habit Manager
     </h1>
     <hr>
     <p>Olá, {{ $nome }}! Aqui estão seus hábitos:</p>

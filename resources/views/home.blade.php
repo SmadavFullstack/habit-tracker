@@ -5,21 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Habit Manager</title>
+    <title>{{ config('app.name') }}</title>
+    @vite('resources/css/app.css')
 </head>
 
 <body>
-    <h1>
-        Welcome, to the Habit Manager!
+    <h1 class="text-3xl text-red-500 font-bold underline">
+        Hello, World!
     </h1>
-    <hr>
-    <p>Olá, {{ $nome }}! Aqui estão seus hábitos:</p>
-    <ul>
-        @foreach ($habitos as $habito)
-            <li>{{ $habito }}</li>
-        @endforeach
-    </ul>
-
 </body>
 
 </html>

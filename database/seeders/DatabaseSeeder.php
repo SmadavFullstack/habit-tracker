@@ -9,14 +9,11 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      */
     public function run(): void
     {
-        
-        $this->call(userSeeder::class);
-
+        $this->call(UserSeeder::class);
     }
 }

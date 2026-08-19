@@ -16,4 +16,8 @@ class SiteController extends Controller
         ];
         return view('home', compact('nome', 'habitos'));
     }
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
 }

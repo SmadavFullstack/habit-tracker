@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -25,13 +27,20 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed, redirect to the intended page
             $request->session()->regenerate();
-            return redirect()->intended('/');
-        } else {
-
-            // Authentication failed, redirect back with an error message
-            return back()->withErrors([
-                'email' => 'Credencias inválidas. Por favor, tente novamente.',
-            ]);
+            return redirect()->intended(route('site.dashboard'));
         }
+
+        // Authentication failed, redirect back with an error message
+        return back()->withErrors([
+            'email' => 'Credencias inválidas. Por favor, tente novamente.',
+        ]);
+    }
+    // Logout
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect(route('auth.login'));
     }
 }

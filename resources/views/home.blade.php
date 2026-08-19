@@ -27,5 +27,10 @@
             class="h-12.5 w-37.5 bg-amber-600 text-white font-sans font-bold cursor-pointer shadow-[0_1px_4px_rgb(0,0,0)] rounded">Criar</button>
 
     </section>
+    <section class="bg-white flex flex-col items-start justify-center p-20! h-[80vh] gap-10">
+            @auth
+            <h1 class="text-3xl font-bold">Bem vindo, {{ auth()->user()->name }}!</h1>
+            @endauth
+    </section>
 
 </x-layout>

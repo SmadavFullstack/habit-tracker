@@ -28,9 +28,9 @@
 
     </section>
     <section class="bg-white flex flex-col items-start justify-center p-20! h-[80vh] gap-10">
-            @auth
+        @auth
             <h1 class="text-3xl font-bold">Bem vindo, {{ auth()->user()->name }}!</h1>
-            @endauth
+        @endauth
     </section>
 
 </x-layout>

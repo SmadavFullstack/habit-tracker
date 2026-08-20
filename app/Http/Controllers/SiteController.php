@@ -7,7 +7,7 @@ class SiteController extends Controller
     public function index()
     {
 
-        $nome = "Alfredo";
+        $nome = "Alfredo Camacho";
         $habitos = [
             'Acordar cedo',
             'Exercícios físicos',

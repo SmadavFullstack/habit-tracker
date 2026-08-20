@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,13 +16,10 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function authenticate(Request $request)
+    public function authenticate(LoginRequest $request)
     {
         // Validate the login form data
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ]);
+        $credentials = $request->only('email', 'password');
 
         // Attempt to log the user in
         if (Auth::attempt($credentials)) {
@@ -32,7 +30,7 @@ class LoginController extends Controller
 
         // Authentication failed, redirect back with an error message
         return back()->withErrors([
-            'email' => 'Credencias inválidas. Por favor, tente novamente.',
+            'email' => 'Credências inválidas. Por favor, tente novamente.',
         ]);
     }
     // Logout
